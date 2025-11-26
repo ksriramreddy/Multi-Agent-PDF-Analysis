@@ -1,11 +1,12 @@
 import json
 
 class PlannerAgent:
-    def __init__(self, rag_agent, summarizer_agent, comparator_agent, aggregator_agent, llm):
+    def __init__(self, rag_agent, summarizer_agent, comparator_agent, aggregator_agent,timeline_agent, llm):
         self.rag = rag_agent
         self.summary = summarizer_agent
         self.compare = comparator_agent
         self.aggregate = aggregator_agent
+        self.timeline = timeline_agent
         self.llm = llm
 
     def decide(self, query: str):
