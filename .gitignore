@@ -22,6 +22,9 @@ ENV/
 env/
 .venv/
 env.bak/
+.env
+*.env
+
 
 # pipenv
 Pipfile
