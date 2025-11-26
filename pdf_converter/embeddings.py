@@ -1,12 +1,15 @@
 from langchain_openai import OpenAIEmbeddings
 from dotenv import load_dotenv
+import os
+import streamlit as st
 
-load_dotenv()
+
 class EmbeddingGenerator:
     def __init__(self):
         self.model = OpenAIEmbeddings(
-            model = "text-embedding-3-small",
-            )
+        model="text-embedding-3-small",
+        openai_api_key=st.secrets["OPENAI_API_KEY"]
+    )
         
     def embed_doc(self , texts : list[str]):
         return self.model.embed_documents(texts)

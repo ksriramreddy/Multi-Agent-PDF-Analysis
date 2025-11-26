@@ -1,8 +1,9 @@
 from dotenv import load_dotenv
-load_dotenv()
+
 
 import streamlit as st
 from langchain_openai import ChatOpenAI
+import os
 
 from pdf_converter.document_store import DocumentStore
 from agents.rag_agent import RAGAgent
@@ -88,8 +89,10 @@ else:
 
 llm = ChatOpenAI(
     model="gpt-4o-mini",
-    temperature=0
+    temperature=0,
+    api_key=st.secrets["OPENAI_API_KEY"]
 )
+
 
 rag = RAGAgent(st.session_state.store, llm)
 summ = SummarizationAgent(st.session_state.store, llm)
