@@ -6,3 +6,4 @@ tiktoken
 pdfplumber
 python-dotenv
 langchain
+langchain-openai
