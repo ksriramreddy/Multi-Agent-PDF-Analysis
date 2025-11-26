@@ -1,0 +1,73 @@
+# ---------------------
+# PYTHON
+# ---------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# virtualenv / venv
+venv/
+.env/
+ENV/
+env/
+.venv/
+env.bak/
+
+# pipenv
+Pipfile
+Pipfile.lock
+
+# poetry
+poetry.lock
+.poetry/
+
+# cache
+.cache/
+.mypy_cache/
+pytest_cache/
+.coverage
+htmlcov/
+
+# ---------------------
+# STREAMLIT + APP
+# ---------------------
+.streamlit/
+logs/
+uploads/
+tmp/
+data/
+
+# ---------------------
+# OS files
+# ---------------------
+.DS_Store
+Thumbs.db
+
+# ---------------------
+# IDE / Editor
+# ---------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*.log
+
+# ---------------------
+# LANGCHAIN / MODELS
+# ---------------------
+vector_store/
+faiss_index/
+*.faiss
+*.index
+
+# ----
