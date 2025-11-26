@@ -18,7 +18,7 @@ st.set_page_config(
     layout="centered",
 )
 
-API_KEY = st.secrets.get["OPENAI_API_KEY"]
+API_KEY = st.secrets["OPENAI_API_KEY"]
 if not API_KEY:
     st.error("❌ Missing OPENAI_API_KEY in Streamlit cloud secrets")
     st.stop()
