@@ -85,11 +85,28 @@ class PlannerAgent:
         - "Aggregate all text across documents about AI"
 
         ----------------------------
+        
+        ### 5️⃣ "timeline"
+        When the user wants chronological order, history, or progression:
+        - arrange events by year
+        - sort steps in order
+        - build chronological narrative
+
+        Keywords:
+        timeline, history, evolution, chronological, sequence, progression,
+        stages, phases, order of events
+
+        Examples:
+        - "Show the history of AI across these PDFs"
+        - "Arrange these findings in chronological order"
+        - "Give me a timeline of methodology steps"
+        - "How did this technology evolve over time?"
+        ------------------------------------
 
         Your output must STRICTLY be JSON:
         {{
-        "action": "<summary|rag|compare|aggregate>",
-        "file_name": "<string | null | [string, string]>"
+            "action": "<summary|rag|compare|aggregate|timeline>",
+            "file_name": "<string|null|[string,string,...]>"
         }}
 
         Notes:
@@ -139,6 +156,11 @@ class PlannerAgent:
         if action == "aggregate":
             print("🧩 EXEC: AGGREGATOR")
             return self.aggregate.aggregate(query, files)
+        
+        if action == "timeline":
+            print("📅 EXEC: TIMELINE AGENT")
+            return self.timeline.build_timeline(query, files)
+
 
         # DEFAULT = RAG
         print("🔍 EXEC: RAG")

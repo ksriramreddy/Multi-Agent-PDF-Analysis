@@ -11,17 +11,13 @@ from agents.summarization_agent import SummarizationAgent
 from agents.planner_agent import PlannerAgent
 from agents.Specialized_agents.comparator_agent import ComparatorAgent
 from agents.Specialized_agents.aggregator_agent import AggregatorAgent
+from agents.Specialized_agents.timeline_agent import TimelineAgent
 
 st.set_page_config(
     page_title="AI Document Assistant",
     page_icon="📚",
     layout="centered",
 )
-
-API_KEY = st.secrets["OPENAI_API_KEY"]
-if not API_KEY:
-    st.error("❌ Missing OPENAI_API_KEY in Streamlit cloud secrets")
-    st.stop()
 
 
 if "store" not in st.session_state:
@@ -103,8 +99,9 @@ rag = RAGAgent(st.session_state.store, llm)
 summ = SummarizationAgent(st.session_state.store, llm)
 comp_agent = ComparatorAgent(st.session_state.store, llm)
 aggregate = AggregatorAgent(st.session_state.store, llm)
+timeline = TimelineAgent(st.session_state.store, llm)
 
-planner = PlannerAgent(rag, summ,comp_agent,aggregate ,llm)
+planner = PlannerAgent(rag, summ,comp_agent,aggregate,timeline ,llm)
 
 
 st.subheader("🗨️ Chat")
