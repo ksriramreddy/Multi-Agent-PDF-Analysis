@@ -18,6 +18,11 @@ st.set_page_config(
     layout="centered",
 )
 
+API_KEY = st.secrets.get("OPENAI_API_KEY")
+if not API_KEY:
+    st.error("❌ Missing OPENAI_API_KEY in Streamlit cloud secrets")
+    st.stop()
+
 
 if "store" not in st.session_state:
     st.session_state.store = DocumentStore()
@@ -78,7 +83,10 @@ if st.session_state.uploaded_files:
         st.success("✨ Documents added successfully!")
 
 
-
+API_KEY = st.secrets.get("OPENAI_API_KEY")
+if not API_KEY:
+    st.error("❌ Missing OPENAI_API_KEY in Streamlit cloud secrets")
+    st.stop()
 if st.session_state.indexed_files:
     st.subheader("📁 Documents in Knowledge Base")
     for f in st.session_state.indexed_files:
